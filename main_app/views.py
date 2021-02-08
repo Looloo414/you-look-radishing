@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Workout
+from .models import Workout, Food
 
 
 def home(request):
@@ -10,7 +10,7 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-
+#  --------------WORKOUTS----------------
 def workouts_index(request):
     workouts = Workout.object.all()
     return render(request, 'workouts/index.html', {'workouts': workouts})
@@ -33,3 +33,14 @@ class WorkoutUpdate(UpdateView):
 class WorkoutDelete(DeleteView):
     model = Workout
     success_url = '/workouts/'
+
+# ---------------FOOD DIARY----------------------
+
+def food_index(request):
+    foods = Food.object.all()
+    return render(request, 'food/index.html', {'foods': foods})
+
+
+def food_detail(request, food_id):
+    food = Food.object.all(id=food_id)
+    return render(request, 'food/detail.html', {'food': food})

@@ -2,7 +2,12 @@ from django.db import models
 from django.urls import reverse
 
 # MODELS
-
+MEAL = (
+    ('B', 'Breakfast'),
+    ('L', 'Lunch'),
+    ('D', 'Dinner'),
+    ('S', 'Snack')
+)
 
 class Workout(models.Model):
     activity = models.CharField(max_length=100)
@@ -15,3 +20,18 @@ class Workout(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
+
+class Food(models.Model):
+    date = models.DateField()
+    item = models.CharField(max_length=100)
+    calories = models.IntegerField()
+    meal = models.CharField(
+        max_length=1,
+        choices=MEAL,
+        default=MEAL[0][0]
+    )
+
+    def __str__(self):
+        return self.item
+
+
