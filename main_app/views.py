@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Workout
 
 
@@ -24,3 +24,12 @@ def workouts_detail(request, workout_id):
 class WorkoutCreate(CreateView):
     model = Workout
     fields = '__all__'
+    success_url = '/workout/'
+
+class WorkoutUpdate(UpdateView):
+    model = Workout
+    fields = ['activity', 'howLong', 'description', 'time']
+
+class WorkoutDelete(DeleteView):
+    model = Workout
+    success_url = '/workouts/'
