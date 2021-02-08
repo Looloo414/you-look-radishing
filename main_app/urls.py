@@ -14,6 +14,11 @@ urlpatterns = [
     path('food/', views.food_index, name='index'),
     path('food/<int:food_id>/', views.food_detail, name='detail'),
     path('user/<int:cat_id>/add_food/', views.add_food, name='add_food'),
+    path('foods/create/', views.FoodCreate.as_view(), name='foods_create'),
+    path('foods/<int:pk>/update/', views.FoodUpdate.as_view(), name='foods_update'),
+    path('foods/<int:pk>/delete/', views.FoodDelete.as_view(), name='foodss_delete'),
+    path('accounts/signup/', views.signup, name='signup'),
+
 
 
 ]
