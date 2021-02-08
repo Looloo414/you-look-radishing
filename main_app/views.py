@@ -60,14 +60,14 @@ def food_detail(request, food_id):
     food = Food.objects.get()
     return render(request, 'food/detail.html', {'food': food, 'food_form': food_form})
 
-# @login_required
-# def add_food(request, user_id):
-#     form = FoodForm(request.POST)
-#     if form.is_valid():
-#         new_food = form.save(commit=False)
-#         new_food.user_id = user_id
-#         new_food.save()
-#         return redirect('detail', user_id=user_id)
+@login_required
+def add_food(request, user_id):
+    form = FoodForm(request.POST)
+    if form.is_valid():
+        new_food = form.save(commit=False)
+        new_food.user_id = user_id
+        new_food.save()
+        return redirect('detail', user_id=user_id)
 
 
 class FoodCreate(LoginRequiredMixin, CreateView):

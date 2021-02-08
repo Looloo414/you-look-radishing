@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You Look Radishing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 
 </head>
 <body>
@@ -23,6 +23,7 @@
             {% if user.is_authenticated %}
             <li><a href="{% url 'workouts_create' %}">Log a Workout</a></li>
             <li><a href="/workout">View Workout Diary</a></li>
+            <li><a href="{% url 'foods_create' %}">Add a Meal</a></li>
             <li><a href="/food">View Food Diary</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
