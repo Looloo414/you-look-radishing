@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Workout
 
 
@@ -18,3 +19,8 @@ def workouts_index(request):
 def workouts_detail(request, workout_id):
     workout = Workout.object.all(id=workout_id)
     return render(request, 'workouts/detail.html', {'workout': workout})
+
+
+class WorkoutCreate(CreateView):
+    model = Workout
+    fields = '__all__'

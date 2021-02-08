@@ -1,6 +1,7 @@
 from django.db import models
 
-# MODELS 
+# MODELS
+
 
 class Workout(models.Model):
     activity = models.CharField(max_length=100)
@@ -10,5 +11,3 @@ class Workout(models.Model):
 
     def __str__(self):
         return self.activity
-
-
