@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Workout List</h1>
+
+{% for workout in workouts %}
+<a href="{% url 'detail' workout.id %}"></a>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ workout.activity }}</span>
+      <p>How Long: {{ workout.howLong }}</p>
+      <p>Description: {{ workout.description }}</p>
+      <p>Time: {{workout.time}}</p>
+
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
