@@ -13,6 +13,7 @@ urlpatterns = [
     # food paths
     path('food/', views.food_index, name='index'),
     path('food/<int:food_id>/', views.food_detail, name='detail'),
+    path('user/<int:cat_id>/add_food/', views.add_food, name='add_food'),
 
 
 ]

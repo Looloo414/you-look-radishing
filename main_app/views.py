@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Workout, Food
+from .forms import FoodForm
 
 
 def home(request):
@@ -40,7 +41,15 @@ def food_index(request):
     foods = Food.object.all()
     return render(request, 'food/index.html', {'foods': foods})
 
-
 def food_detail(request, food_id):
     food = Food.object.all(id=food_id)
-    return render(request, 'food/detail.html', {'food': food})
+    return render(request, 'food/detail.html', {'food': food, 'food_form': food_form})
+    
+def add_food(request, user_id):
+    form = FoodForm(request.POST)
+    if form.is_valid():
+        new_food = form.save(commit=False)
+        new_food.user_id = user_id
+        new_food.save()
+        return redirect('detail', user_id=user_id)
+
