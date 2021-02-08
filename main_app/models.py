@@ -8,4 +8,7 @@ class Workout(models.Model):
     description = models.TextField(max_length=300)
     time = models.TimeField('Workout Time')
 
+    def __str__(self):
+        return self.activity
+
 
