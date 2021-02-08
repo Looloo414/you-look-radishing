@@ -14,7 +14,7 @@
 <body>
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper pink darken-3">
           <ul>
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Radishing</a></li>
           </ul>
@@ -28,7 +28,7 @@
             {% else %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
                 <li><a href="{% url 'login' %}">Log In</a></li>
-            {% endif %
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -37,7 +37,7 @@
       {% block content %}
       {% endblock %}
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer pink darken-3">
       <div class="right">All Rights Reserved, &copy; 2021 You Look Radishing &nbsp;</div>
     </footer>
 </html>

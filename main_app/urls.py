@@ -19,6 +19,4 @@ urlpatterns = [
     path('foods/<int:pk>/delete/', views.FoodDelete.as_view(), name='foodss_delete'),
     path('accounts/signup/', views.signup, name='signup'),
 
-
-
 ]
